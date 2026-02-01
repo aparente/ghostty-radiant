@@ -1,0 +1,53 @@
+{
+  "states": {
+    "base": {
+      "bg": "#1a1b26",
+      "fg": "#c0caf5",
+      "cursor": "#c0caf5",
+      "transition": "instant"
+    },
+    "connected": {
+      "bg": "#1a2a1a",
+      "fg": "#c0caf5",
+      "cursor": "#50fa7b",
+      "transition": "instant",
+      "auto_transition": {
+        "to": "base",
+        "after_ms": 1500
+      }
+    },
+    "working": {
+      "bg": "#1a2332",
+      "fg": "#c0caf5",
+      "cursor": "#008B8B",
+      "transition": "animate",
+      "animation": {
+        "end_bg": "#1a2840",
+        "steps": 8,
+        "step_ms": 120
+      }
+    },
+    "needs_input": {
+      "bg": "#2a1f1a",
+      "fg": "#c0caf5",
+      "cursor": "#CD853F",
+      "transition": "instant"
+    },
+    "completed": {
+      "bg": "#1f2a1a",
+      "fg": "#c0caf5",
+      "cursor": "#DAA520",
+      "transition": "instant",
+      "auto_transition": {
+        "to": "base",
+        "after_ms": 2000
+      }
+    },
+    "error": {
+      "bg": "#2a1a1a",
+      "fg": "#c0caf5",
+      "cursor": "#FF6B6B",
+      "transition": "instant"
+    }
+  }
+}
