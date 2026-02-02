@@ -1,5 +1,5 @@
 #!/bin/bash
-# Hook: PostToolUse — shift to working state
+# ghostty-aura: PostToolUse hook — shift to working/error state
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 INPUT=$(cat)
 SESSION_ID=$(echo "$INPUT" | jq -r '.session_id // empty')
@@ -8,8 +8,8 @@ TOOL_NAME=$(echo "$INPUT" | jq -r '.tool_name // empty')
 # Check for errors in tool result
 WAS_ERROR=$(echo "$INPUT" | jq -r '.tool_error // empty')
 if [[ -n "$WAS_ERROR" ]]; then
-  "$SCRIPT_DIR/set-theme-state.sh" error --session "$SESSION_ID"
+  "$SCRIPT_DIR/set-theme-state.sh" error --session "$SESSION_ID" || echo "ghostty-aura [post-tool]: failed to set error state" >&2
 else
-  "$SCRIPT_DIR/set-theme-state.sh" working --session "$SESSION_ID"
+  "$SCRIPT_DIR/set-theme-state.sh" working --session "$SESSION_ID" || echo "ghostty-aura [post-tool]: failed to set working state" >&2
 fi
 exit 0

@@ -1,0 +1,5 @@
+{
+  "name": "ghostty-aura",
+  "version": "2.0.0",
+  "description": "Theme-agnostic ambient terminal coloring for Claude Code in Ghostty"
+}
